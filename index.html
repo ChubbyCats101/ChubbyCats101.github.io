@@ -5,7 +5,7 @@
   <title>Chubby Cats 101</title>
   <style>
     body {
-      background: linear-gradient(135deg, #f8e1f4 0%, #c2e9fb 100%);
+      background: linear-gradient(135deg, #fbeee6 0%, #f7cac9 50%, #b5ead7 100%);
       font-family: 'Segoe UI', Arial, sans-serif;
       margin: 0;
       padding: 0;
@@ -16,105 +16,175 @@
       justify-content: center;
     }
     .container {
-      background: rgba(255,255,255,0.92);
-      border-radius: 18px;
-      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+      background: rgba(255,255,255,0.96);
+      border-radius: 24px;
+      box-shadow: 0 8px 32px rgba(123,47,242,0.10), 0 2px 12px rgba(247,202,201,0.10);
       padding: 40px 32px 32px 32px;
       text-align: center;
-      max-width: 420px;
-      margin: 40px auto;
-    }
-    h1 {
-      color: #7b2ff2;
-      font-size: 2.5em;
-      margin-bottom: 0.5em;
-      letter-spacing: 2px;
-    }
-    p {
-      color: #444;
-      font-size: 1.2em;
-      margin-bottom: 1.2em;
+      max-width: 370px;
+      width: 100%;
+      margin: 32px auto;
+      border: 2.5px solid #f7cac9;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
     .cat-emoji {
-      font-size: 3em;
-      margin-bottom: 0.5em;
+      font-size: 2.6em;
+      margin-bottom: 0.2em;
       display: block;
       animation: bounce 1.5s infinite;
+      filter: drop-shadow(0 2px 8px #b5ead7aa);
     }
     .profile-img {
-      width: 120px;
-      height: 120px;
+      width: 170px;
+      height: 170px;
       object-fit: cover;
       border-radius: 50%;
-      border: 4px solid #c2e9fb;
+      border: 4px solid #b5ead7;
       margin-bottom: 1em;
-      box-shadow: 0 2px 12px rgba(123,47,242,0.08);
+      box-shadow: 0 2px 16px #f7cac966, 0 1px 4px #b5ead766;
+      background: #fff;
+    }
+    h1 {
+      color: #f7cac9;
+      font-size: 2.1em;
+      margin-bottom: 0.4em;
+      letter-spacing: 2px;
+      text-shadow: 1px 2px 8px #fff6;
+      font-weight: 700;
     }
     .info-list {
       list-style: none;
       padding: 0;
-      margin: 0 0 1.2em 0;
+      margin: 0 0 1.1em 0;
       text-align: left;
       font-size: 1.08em;
+      width: 100%;
+      max-width: 320px;
     }
     .info-list li {
-      margin-bottom: 0.5em;
+      margin-bottom: 0.4em;
       display: flex;
       align-items: center;
       gap: 0.5em;
     }
     .info-list strong {
       min-width: 90px;
+      color: #f7cac9;
+      font-weight: 600;
+      text-align: right;
+      flex-shrink: 0;
+    }
+    .info-list a {
       color: #7b2ff2;
+      text-decoration: none;
+      word-break: break-all;
+    }
+    .info-list a:hover {
+      text-decoration: underline;
+      color: #f7cac9;
     }
     .social-links {
       display: flex;
       justify-content: center;
       gap: 18px;
-      margin-bottom: 1.2em;
+      margin-bottom: 1.1em;
     }
     .social-links a {
-      color: #7b2ff2;
+      color: #b5ead7;
       text-decoration: none;
       font-size: 1.5em;
-      transition: color 0.2s;
+      transition: color 0.2s, transform 0.2s;
+      background: #fff;
+      border-radius: 50%;
+      padding: 8px;
+      box-shadow: 0 1px 6px #f7cac955;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     .social-links a:hover {
-      color: #f559a6;
+      color: #f7cac9;
+      background: #b5ead7;
+      transform: scale(1.12) rotate(-6deg);
+      box-shadow: 0 2px 12px #f7cac988;
+    }
+    .highlight-message {
+      background: linear-gradient(90deg, #fffbe6 60%, #b5ead7 100%);
+      color: #f7cac9;
+      padding: 7px 16px;
+      border-radius: 16px;
+      font-weight: bold;
+      box-shadow: 0 2px 8px #f7cac955;
+      display: inline-block;
+      white-space: nowrap;
+      font-size: 1.08em;
+      margin-top: 8px;
+      margin-bottom: 0;
+      letter-spacing: 0.5px;
+      border: 1.5px solid #f7cac9;
+      transition: box-shadow 0.2s;
+    }
+    .highlight-message:hover {
+      box-shadow: 0 4px 16px #b5ead7aa;
+      background: linear-gradient(90deg, #fffbe6 40%, #f7cac9 100%);
+      color: #7b2ff2;
+    }
+    footer {
+      margin-top: 24px;
+      color: #888;
+      font-size: 0.95em;
+      text-shadow: 0 1px 4px #fff8;
+      text-align: center;
     }
     @keyframes bounce {
       0%, 100% { transform: translateY(0);}
       50% { transform: translateY(-12px);}
     }
-    footer {
-      margin-top: 30px;
-      color: #888;
-      font-size: 0.95em;
+    @media (max-width: 500px) {
+      .container {
+        padding: 18px 4vw 18px 4vw;
+        max-width: 98vw;
+      }
+      .info-list {
+        font-size: 1em;
+        max-width: 98vw;
+      }
+      .highlight-message {
+        font-size: 1em;
+        padding: 6px 6vw;
+      }
     }
   </style>
   <!-- Font Awesome for social icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
-  <div class="container">
-    <span class="cat-emoji">🐱‍👓</span>
-    <img class="profile-img" src="https://avatars.githubusercontent.com/u/143099741?v=4" alt="Thankorn Phiromkul">
-    <h1>Chubby Cats 101</h1>
-    <ul class="info-list">
-      <li><strong>ชื่อ:</strong> ธนกร</li>
-      <li><strong>นามสกุล:</strong> ภิรมย์กุล</li>
-      <li><strong>สาขา:</strong> Computer and Information Science</li>
-      <li><strong>รหัส:</strong> 643450789-0</li>
-      <li><strong>อีเมล:</strong> <a href="mailto:Thankorn.ph@kkumail.com">Thankorn.ph@kkumail.com</a></li>
-    </ul>
-    <div class="social-links">
-      <a href="https://facebook.com/korn.phiromkul" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
-      <a href="https://instagram.com/korn_thk_" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+  <div class="container" style="flex-direction: row; justify-content: center; align-items: center; gap: 32px; max-width: 900px;">
+    <!-- รูปซ้าย -->
+    <img class="profile-img" src="img/ifeelsosigma.webp" alt="ifeelsosigma" style="margin-bottom: 0;">
+    <!-- ข้อมูลและรูปตรงกลาง -->
+    <div style="display: flex; flex-direction: column; align-items: center;">
+      <img class="profile-img" src="img/ICON.png" alt="Thankorn Phiromkul" style="margin-bottom: 1em;">
+      <span class="cat-emoji">🐱</span>
+      <h1>Chubby Cats 101</h1>
+      <ul class="info-list">
+        <li><strong>ชื่อ-นามสกุล:</strong> ธนกร ภิรมย์กุล</li>
+        <li><strong>สาขา:</strong> Computer and Information Science</li>
+        <li><strong>รหัส:</strong> 643450789-0</li>
+        <li><strong>อีเมล:</strong> <a href="mailto:Thankorn.ph@kkumail.com">Thankorn.ph@kkumail.com</a></li>
+      </ul>
+      <div class="social-links">
+        <a href="https://facebook.com/korn.phiromkul" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+        <a href="https://instagram.com/korn_thk_" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+      </div>
+      <span class="highlight-message">
+        ฉันก็เป็นมนุษย์เหมือนกับทุกคน ฉันรัก ฉะฉะฉันกลัวเป็น
+      </span>
     </div>
-    <p>I'm hosted with GitHub Pages.</p>
+    <!-- รูปขวา -->
+    <img class="profile-img" src="img/Usagi.jpg" alt="Usagi" style="margin-bottom: 0;">
   </div>
-  <footer>
-    &copy; 2025 ChubbyCats101
-  </footer>
 </body>
 </html>
